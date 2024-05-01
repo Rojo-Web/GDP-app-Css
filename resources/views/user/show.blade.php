@@ -3,7 +3,8 @@
 @section('template_title')
     {{ $user->name ?? __('Show') . " " . __('User') }}
 @endsection
-
+@if (Auth::check())
+@if (Auth::user()->rol == "Admin")
 @section('content')
     <section class="content container-fluid">
         <div class="row">
@@ -19,7 +20,7 @@
                     </div>
 
                     <div class="card-body bg-white">
-                        
+
                                 <div class="form-group mb-2 mb20">
                                     <strong>Cedula:</strong>
                                     {{ $user->cedula }}
@@ -43,3 +44,13 @@
         </div>
     </section>
 @endsection
+@else
+@section('content')
+<h1 style="text-align: center; color:black;margin-top:300px;">No tienes permisos para entrar a esta pagina</h1>
+@endsection
+@endif
+@else
+@section('content')
+<h1 style="text-align: center; color:black;margin-top:300px;">No estas loguead@</h1>
+@endsection
+@endif

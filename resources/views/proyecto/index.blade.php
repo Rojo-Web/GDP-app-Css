@@ -3,7 +3,8 @@
 @section('template_title')
 Proyectos
 @endsection
-
+@if (Auth::check())
+@if (Auth::user()->rol == "Admin" || Auth::user()->rol == "Gestor")
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -92,3 +93,13 @@ Proyectos
     </div>
 </div>
 @endsection
+@else
+@section('content')
+<h1 style="text-align: center; color:black;margin-top:300px;">No tienes permisos para entrar a esta pagina</h1>
+@endsection
+@endif
+@else
+@section('content')
+<h1 style="text-align: center; color:black;margin-top:300px;">No estas loguead@</h1>
+@endsection
+@endif

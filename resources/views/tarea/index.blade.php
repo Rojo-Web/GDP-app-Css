@@ -3,7 +3,7 @@
 @section('template_title')
     Tareas
 @endsection
-
+@if (Auth::check())
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 									<th >Nombre</th>
 									<th >Estado</th>
 									<th >Descripcion</th>
@@ -51,7 +51,7 @@
                                     @foreach ($tareas as $tarea)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 										<td >{{ $tarea->nombre }}</td>
 										<td >{{ $tarea->estado }}</td>
 										<td >{{ $tarea->descripcion }}</td>
@@ -81,3 +81,9 @@
         </div>
     </div>
 @endsection
+@else
+@section('content')
+<h1 style="text-align: center; color:black;margin-top:300px;">No estas loguead@</h1>
+@endsection
+@endif
+

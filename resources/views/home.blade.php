@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@if (Auth::check())
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -21,3 +21,8 @@
     </div>
 </div>
 @endsection
+@else
+@section('content')
+<h1 style="text-align: center; color:black;margin-top:300px;">No estas loguead@</h1>
+@endsection
+@endif
