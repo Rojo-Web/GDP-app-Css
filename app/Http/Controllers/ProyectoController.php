@@ -20,7 +20,7 @@ class ProyectoController extends Controller
      */
     public function index(Request $request): View
     {
-        $proyectos = Proyecto::paginate();
+        $proyectos = Proyecto::paginate(4);
         $usuarioProyecto = UsuarioProyecto::paginate();
         $usuarios = User::paginate();
         return view('proyecto.index', compact('proyectos', 'usuarioProyecto', 'usuarios'))

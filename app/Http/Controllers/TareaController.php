@@ -16,7 +16,7 @@ class TareaController extends Controller
      */
     public function index(Request $request): View
     {
-        $tareas = Tarea::paginate();
+        $tareas = Tarea::paginate(4);
 
         return view('tarea.index', compact('tareas'))
             ->with('i', ($request->input('page', 1) - 1) * $tareas->perPage());
