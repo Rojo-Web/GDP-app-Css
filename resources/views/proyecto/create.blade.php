@@ -9,11 +9,7 @@
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Proyecto</span>
-                    </div>
+            <h1 style="text-align: center;color:#009d58; ">Nueva proyecto</h1>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('proyectos.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
@@ -37,3 +33,4 @@
 <h1 style="text-align: center; color:black;margin-top:300px;">No estas loguead@</h1>
 @endsection
 @endif
+

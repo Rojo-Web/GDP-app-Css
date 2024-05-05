@@ -23,6 +23,7 @@ class ProyectoController extends Controller
     {
         $proyectos = Proyecto::paginate(4);
         $usuarioProyecto = UsuarioProyecto::paginate();
+
         $usuarios = User::paginate();
         $cantidadTareas = Tarea::all();
         $cantidad = Proyecto::count();
