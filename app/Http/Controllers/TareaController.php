@@ -6,6 +6,8 @@ use App\Models\Tarea;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\TareaRequest;
+use App\Models\Proyecto;
+use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -18,7 +20,9 @@ class TareaController extends Controller
     {
         $tareas = Tarea::paginate(4);
         $cantidad = Tarea::count();
-        return view('tarea.index', compact('tareas','cantidad'))
+        $proyectos = Proyecto::all();
+        $users = User::all();
+        return view('tarea.index', compact('tareas','cantidad','proyectos','users'))
             ->with('i', ($request->input('page', 1) - 1) * $tareas->perPage());
     }
 
@@ -28,8 +32,9 @@ class TareaController extends Controller
     public function create(): View
     {
         $tarea = new Tarea();
-
-        return view('tarea.create', compact('tarea'));
+        $proyectos = Proyecto::all();
+        $users = User::all();
+        return view('tarea.create', compact('tarea','proyectos','users'));
     }
 
     /**
@@ -49,8 +54,9 @@ class TareaController extends Controller
     public function show($id): View
     {
         $tarea = Tarea::find($id);
-
-        return view('tarea.show', compact('tarea'));
+        $proyectos = Proyecto::all();
+        $users = User::all();
+        return view('tarea.show', compact('tarea','proyectos','users'));
     }
 
     /**
@@ -59,8 +65,9 @@ class TareaController extends Controller
     public function edit($id): View
     {
         $tarea = Tarea::find($id);
-
-        return view('tarea.edit', compact('tarea'));
+        $proyectos = Proyecto::all();
+        $users = User::all();
+        return view('tarea.edit', compact('tarea','proyectos','users'));
     }
 
     /**

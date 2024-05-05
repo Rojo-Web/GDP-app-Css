@@ -8,11 +8,7 @@
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
-
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Tarea</span>
-                    </div>
+            <h1 style="text-align: center; color:#009d58;">Editar tarea</h1>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('tareas.update', $tarea->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}

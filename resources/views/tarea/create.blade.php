@@ -1,30 +1,24 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Create') }} Tarea
+{{ __('Create') }} Tarea
 @endsection
 @if (Auth::check())
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<section class="content container-fluid">
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Tarea</span>
-                    </div>
-                    <div class="card-body bg-white">
-                        <form method="POST" action="{{ route('tareas.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
 
-                            @include('tarea.form')
+    <div class="card-body bg-white">
+        <form method="POST" action="{{ route('tareas.store') }}" role="form" enctype="multipart/form-data">
+        <h1 style="text-align: center;color:#009d58; ">Nueva tarea</h1>
+            @csrf
 
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            @include('tarea.form')
+
+        </form>
+    </div>
+
+</section>
 @endsection
 @else
 @section('content')
