@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TareaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,6 +15,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('proyectos', App\Http\Controllers\ProyectoController::class);
 Route::resource('tareas', App\Http\Controllers\TareaController::class);
+Route::get('tareas/{id}/accion', [TareaController::class, 'accion']);
+
 Route::resource('users', App\Http\Controllers\UserController::class);
 
 

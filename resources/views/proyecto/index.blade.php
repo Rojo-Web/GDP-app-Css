@@ -77,13 +77,13 @@ Proyectos
                             @endif
                             @endforeach
                         </td>
-                        <td><?php $contador = 0;
+                        <td><a href="{{route('tareas.index', ['id' => $proyecto->id])}}" style="text-decoration: none;"><?php $contador = 0;
                             foreach ($cantidadTareas as $tarea) {
                                 if ($tarea->proyecto_id == $proyecto->id) {
                                     $contador++;
                                 }
                             }
-                            echo $contador; ?>
+                            echo $contador; ?></a>
                         </td>
                         <td>
                             <?php

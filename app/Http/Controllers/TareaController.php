@@ -18,12 +18,28 @@ class TareaController extends Controller
      */
     public function index(Request $request): View
     {
-        $tareas = Tarea::paginate(4);
-        $cantidad = Tarea::count();
-        $proyectos = Proyecto::all();
-        $users = User::all();
-        return view('tarea.index', compact('tareas','cantidad','proyectos','users'))
-            ->with('i', ($request->input('page', 1) - 1) * $tareas->perPage());
+        if($request->has('id')){
+            $id = $request->input('id');
+            $tareas = Tarea::where('proyecto_id', $id)->paginate();
+            $cantidad = Tarea::where('proyecto_id', $id)->count();
+            $proyectos = Proyecto::all();
+            $users = User::all();
+            return view('tarea.index', compact('tareas','cantidad','proyectos','users'))
+                ->with('i', ($request->input('page', 1) - 1) * $tareas->perPage());
+        }else{
+            $tareas = Tarea::paginate(4);
+            $cantidad = Tarea::count();
+            $proyectos = Proyecto::all();
+            $users = User::all();
+            return view('tarea.index', compact('tareas','cantidad','proyectos','users'))
+                ->with('i', ($request->input('page', 1) - 1) * $tareas->perPage());
+        }
+
+    }
+    public function accion($id)
+    {
+        // Manejar la acción específica aquí
+        // Por ejemplo, redireccionar, mostrar una vista, etc.
     }
 
     /**
