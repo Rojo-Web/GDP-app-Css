@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProyectoRequest;
 use App\Models\UsuarioProyecto;
+use App\Models\Tarea;
 use App\Models\usuarioProyecto as ModelsUsuarioProyecto;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
@@ -23,7 +24,9 @@ class ProyectoController extends Controller
         $proyectos = Proyecto::paginate(4);
         $usuarioProyecto = UsuarioProyecto::paginate();
         $usuarios = User::paginate();
-        return view('proyecto.index', compact('proyectos', 'usuarioProyecto', 'usuarios'))
+        $cantidadTareas = Tarea::all();
+        $cantidad = Proyecto::count();
+        return view('proyecto.index', compact('proyectos', 'usuarioProyecto', 'usuarios','cantidadTareas','cantidad'))
             ->with('i', ($request->input('page', 1) - 1) * $proyectos->perPage());
     }
 
