@@ -10,10 +10,8 @@
         <div class="">
             <div class="col-md-12">
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} User</span>
-                    </div>
+            <h1 style="text-align: center;color:#009d58; ">Editar usuario</h1>
+
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('users.update', $user->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}

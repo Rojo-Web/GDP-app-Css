@@ -10,10 +10,8 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} User</span>
-                    </div>
+            <h1 style="text-align: center;color:#009d58; ">Nuevo Usuario</h1>
+
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('users.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf

@@ -17,9 +17,10 @@ class UserController extends Controller
      */
     public function index(Request $request): View
     {
-        $users = User::paginate(5);
+        $cantidad = User::count();
+        $users = User::paginate(4);
 
-        return view('user.index', compact('users'))
+        return view('user.index', compact('users','cantidad'))
             ->with('i', ($request->input('page', 1) - 1) * $users->perPage());
     }
 
