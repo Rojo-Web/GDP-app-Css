@@ -43,7 +43,7 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'cedula' => 'required|string|max:255',
             'rol' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
@@ -108,7 +108,7 @@ class UserController extends Controller
                             ->withErrors($validator)
                             ->withInput();
         }
-        
+
         $user = User::find($id);
         $user->cedula = $request->cedula;
         $user->name = $request->name;
