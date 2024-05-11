@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-md  shadow-sm" style="background-color: #0159A1; padding: 0px;margin-bottom: 40px;  justify-content: space-around;">
             @if (Auth::check())
             <a href="{{ url('home') }}" class="navbar-brand" style="color: white; text-decoration: none; padding: 21px; transition: background-color 0.3s;">
-                Home
+                Hogar
             </a>
             @endif
             @if (Auth::check())
@@ -49,7 +49,7 @@
             @if (Auth::check())
             @if (Auth::user()->rol == "Admin")
             <a class="navbar-brand" href="{{ url('users') }}" style="color: white; text-decoration: none; padding: 21px; transition: background-color 0.3s;">
-                Users
+                Usuarios
             </a>
             @endif
             @endif
@@ -112,7 +112,7 @@
                         <div class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Cerrar Sesion') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
