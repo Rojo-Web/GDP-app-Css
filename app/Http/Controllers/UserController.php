@@ -94,6 +94,21 @@ class UserController extends Controller
     public function update(Request $request, $id): RedirectResponse
     {
         // $user->update($request->validated());
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'cedula' => 'required|string|max:255',
+            'rol' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+        
         $user = User::find($id);
         $user->cedula = $request->cedula;
         $user->name = $request->name;
