@@ -1,5 +1,3 @@
-
-
 <div class="row" style="padding: 0% 5% 5% 5%;justify-content: center;">
     <div class="col" style="max-width: 30%;">
         <div class="form-group mb-2 mb20">
@@ -23,17 +21,17 @@
             <label for="rol" class="form-label">{{ __('Rol') }}</label>
             <select id="rol" name="rol" class="form-select mt-1" required>
                 <Option selected disabled value="">Elije uno</Option>
-                    @if($user->rol != '')
-                    @foreach(['Admin', 'Gestor', 'Integrante'] as $opcion)
-                    <option value="{{ $opcion }}" {{ $user->rol == $opcion ? 'selected' : '' }}>
-                        {{ $opcion }}
-                    </option>
-                    @endforeach
-                    @else
-                    <option value="Admin"> Admin </option>
-                    <option value="Gestor"> Gestor </option>
-                    <option value="Integrante"> Integrante </option>
-                    @endif
+                @if($user->rol != '')
+                @foreach(['Admin', 'Gestor', 'Integrante'] as $opcion)
+                <option value="{{ $opcion }}" {{ $user->rol == $opcion ? 'selected' : '' }}>
+                    {{ $opcion }}
+                </option>
+                @endforeach
+                @else
+                <option value="Admin"> Admin </option>
+                <option value="Gestor"> Gestor </option>
+                <option value="Integrante"> Integrante </option>
+                @endif
 
             </select>
             @if($errors->has('rol'))
@@ -61,7 +59,7 @@
             <label for="password-confirm" class="form-label">{{ __('Confirm Password') }}</label>
 
             <div class="form-group mb-2 mb20">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" value="{{ old('password', $user?->password) }}" required autocomplete="new-password">
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
         </div>
     </div>
