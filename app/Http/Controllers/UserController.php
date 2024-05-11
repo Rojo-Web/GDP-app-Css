@@ -9,7 +9,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     /**
@@ -39,13 +39,22 @@ class UserController extends Controller
      */
     public function store(UserRequest $request): RedirectResponse
     {
-        // return User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'cedula' => $request->cedula,
-        //     'rol' => $request->rol,
-        //     'password' => Hash::make($request->password),
-        // ]);
+
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'cedula' => 'required|string|max:255',
+            'rol' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -53,6 +62,7 @@ class UserController extends Controller
         $user->rol = $request->rol;
         $user->password = Hash::make($request->password);
         $user->save();
+
 
         return Redirect::route('users.index')
             ->with('success', 'User created successfully.');
@@ -84,6 +94,21 @@ class UserController extends Controller
     public function update(Request $request, $id): RedirectResponse
     {
         // $user->update($request->validated());
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'cedula' => 'required|string|max:255',
+            'rol' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+
         $user = User::find($id);
         $user->cedula = $request->cedula;
         $user->name = $request->name;
