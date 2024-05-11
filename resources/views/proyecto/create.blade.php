@@ -9,7 +9,7 @@
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-            <h1 style="text-align: center;color:#009d58; ">Nueva proyecto</h1>
+            <h1 style="text-align: center;color:#009d58; ">Nuevo proyecto</h1>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('proyectos.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf

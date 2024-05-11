@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                     <div class="float-left">
-                        <span class="card-title">{{ __('Show') }} Tarea</span>
+                        <span class="card-title">{{ __('Mostrar') }} Tarea</span>
                     </div>
                     <div class="float-right">
                         <a class="btn btn-primary btn-sm" href="{{ route('tareas.index') }}"> {{ __('Back') }}</a>
@@ -29,7 +29,7 @@
                         {{ $tarea->estado }}
                     </div>
                     <div class="form-group mb-2 mb20">
-                        <strong>Descripcion:</strong>
+                        <strong>Descripción:</strong>
                         {{ $tarea->descripcion }}
                     </div>
                     <div class="form-group mb-2 mb20">

@@ -46,7 +46,7 @@ Tareas
 
                         <th>Nombre</th>
                         <th>Estado</th>
-                        <th>Descripcion</th>
+                        <th>Descripción</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Final</th>
                         <th>Responsable</th>

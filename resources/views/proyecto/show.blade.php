@@ -12,10 +12,10 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Proyecto</span>
+                            <span class="card-title">{{ __('Mostrar') }} Proyecto</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('proyectos.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary btn-sm" href="{{ route('proyectos.index') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@
                                     {{ $proyecto->estado }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Descripcion:</strong>
+                                    <strong>Descripción:</strong>
                                     {{ $proyecto->descripcion }}
                                 </div>
                                 <div class="form-group mb-2 mb20">

@@ -47,9 +47,9 @@ Users
                     <tr style="text-align: center;">
                         <th>No</th>
 
-                        <th>Cedula</th>
-                        <th>Name</th>
-                        <th>Email</th>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
                         <th>Rol</th>
 
                         <th></th>

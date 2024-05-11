@@ -50,10 +50,10 @@ Proyectos
 
                         <th>Nombre</th>
                         <th>Estado</th>
-                        <th>Descripcion</th>
+                        <th>Descripción</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Final</th>
-                        <th>Lider</th>
+                        <th>Líder</th>
                         <th>No. Tareas</th>
                         <th>Progreso</th>
 

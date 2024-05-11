@@ -39,7 +39,7 @@
             </div>
 
             <div class="form-group mb-2 mb20">
-                <label for="descripcion" class="form-label">{{ __('Descripcion') }}</label>
+                <label for="descripcion" class="form-label">{{ __('Descripción') }}</label>
                 <textarea type="text" name="descripcion" class="form-control @error('descripcion') is-invalid @enderror" value="{{ old('descripcion', $tarea?->descripcion) }}" id="descripcion" placeholder="Descripcion" style="resize: vertical; field-sizing: content;  min-height: 100px;">{{$tarea?->descripcion}}</textarea>
                 {!! $errors->first('descripcion', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
@@ -74,8 +74,8 @@
             </div>
 
             <div class="row" style="display: inline-flex; justify-content: end; width: 100%; gap: 10px;">
-                <button type="submit" class="btn btn-primary" style="width: 30%;">{{ __('Submit') }}</button>
-                <a href="{{ route('tareas.index')}}" class="btn btn-warning" style="width: 30%;">cancel</a>
+                <button type="submit" class="btn btn-primary" style="width: 30%;">{{ __('Enviar') }}</button>
+                <a href="{{ route('tareas.index')}}" class="btn btn-warning" style="width: 30%;">cancelar</a>
 
 
             </div>

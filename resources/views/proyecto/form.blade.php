@@ -27,7 +27,7 @@
             {!! $errors->first('estado', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="lider_id" class="form-label">{{ __('Lider') }}</label>
+            <label for="lider_id" class="form-label">{{ __('Líder') }}</label>
             <select class="form-select" id="lider_id" name="lider_id" required>
                 <Option selected disabled value="">Elije uno</Option>
                 @foreach ($users as $user)
@@ -41,7 +41,7 @@
             {!! $errors->first('lider_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="descripcion" class="form-label">{{ __('Descripcion') }}</label>
+            <label for="descripcion" class="form-label">{{ __('Descripción') }}</label>
             <textarea type="text" name="descripcion" class="form-control @error('descripcion') is-invalid @enderror" value="{{ old('descripcion', $proyecto?->descripcion) }}" id="descripcion" placeholder="Descripcion" style="resize: vertical; field-sizing: content;  min-height: 100px;">{{$proyecto?->descripcion}}</textarea>
             {!! $errors->first('descripcion', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
@@ -66,8 +66,8 @@
             </select>
         </div>
         <div class="row" style="display: inline-flex; justify-content: end; width: 100%; gap: 10px;">
-            <button type="submit" class="btn btn-primary" style="width: 30%;">{{ __('Submit') }}</button>
-            <a href="{{ route('proyectos.index')}}" class="btn btn-warning" style="width: 30%;">cancel</a>
+            <button type="submit" class="btn btn-primary" style="width: 30%;">{{ __('Enviar') }}</button>
+            <a href="{{ route('proyectos.index')}}" class="btn btn-warning" style="width: 30%;">Cancelar</a>
         </div>
     </div>
 </div>

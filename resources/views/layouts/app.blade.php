@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-md  shadow-sm" style="background-color: #0159A1; padding: 0px;margin-bottom: 40px;  justify-content: space-around;">
             @if (Auth::check())
             <a href="{{ url('home') }}" class="navbar-brand" style="color: white; text-decoration: none; padding: 21px; transition: background-color 0.3s;">
-                Hogar
+                Inicio
             </a>
             @endif
             @if (Auth::check())
@@ -112,7 +112,7 @@
                         <div class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('Cerrar Sesion') }}
+                                {{ __('Cerrar Sesión') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
