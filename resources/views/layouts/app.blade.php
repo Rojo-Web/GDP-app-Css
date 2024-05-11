@@ -14,6 +14,12 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <style>
+        .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+        }
+    </style>
+
 
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
@@ -45,6 +51,22 @@
             <a class="navbar-brand" href="{{ url('users') }}" style="color: white; text-decoration: none; padding: 21px; transition: background-color 0.3s;">
                 Users
             </a>
+            @endif
+            @endif
+            @if (Auth::check())
+            @if (Auth::user()->rol == "Admin" || Auth::user()->rol == "Gestor")
+            <div class="dropdown">
+                <button class="btn navbar-brand dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="color: white; text-decoration: none; padding: 21px; transition: background-color 0.3s;">
+                    Calculadora
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #0159A1;">
+                    <li><a class="dropdown-item" href="{{ url('calculadora') }}" style="color: white;">Estimación</a></li>
+                    <li><a class="dropdown-item" href="{{ url('resultados') }}" style="color: white;">Resultados</a></li>
+                </ul>
+            </div>
+            <!-- <a class="navbar-brand" href="{{ url('calculadora') }}" style="color: white; text-decoration: none; padding: 21px; transition: background-color 0.3s;">
+                Calculadora
+            </a> -->
             @endif
             @endif
             <!-- <a href="#" style="color: white; text-decoration: none; padding: 10px; transition: background-color 0.3s;">
